@@ -8,8 +8,6 @@ import pathlib
 # Suppressing torch.hub download progress
 import logging
 logging.getLogger("transformers.file_utils").setLevel(logging.WARNING)
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
 # Load YOLOv5 model
 model = torch.hub.load('ultralytics/yolov5', 'custom', path="last.pt", force_reload=True)
 model.conf = 0.55
